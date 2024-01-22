@@ -1,22 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+-->
+<LinearLayout
+   xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:app="http://schemas.android.com/apk/res-auto"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   android:orientation="vertical"
+   tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_message"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+   <TextView
+       android:id="@+id/textview"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="@string/hello_message"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button_id"
+        android:id="@+id/mybutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="50dp"
@@ -26,5 +32,27 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <EditText
+        android:id="@+id/myedittext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/editmessage"/>
 
+    <ImageView
+        android:id="@+id/myimageview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/your_existing_view_id"
+        android:src="@drawable/logo_algonquin" />
+
+    <!-- ImageButton -->
+    <ImageButton
+        android:id="@+id/myimagebutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/myimageview"
+        android:src="@drawable/logo_algonquin" />
+</LinearLayout>
+    <!--
 </androidx.constraintlayout.widget.ConstraintLayout>
+    -->
