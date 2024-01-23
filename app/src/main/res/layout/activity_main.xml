@@ -9,7 +9,7 @@
    android:layout_width="match_parent"
    android:layout_height="match_parent"
    android:orientation="vertical"
-   tools:context=".MainActivity">
+   tools:context=".ui.MainActivity">
 
    <TextView
        android:id="@+id/textview"
@@ -32,24 +32,46 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
-        android:id="@+id/myedittext"
+ <EditText
+     android:id="@+id/myedittext"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:text="@string/editmessage" />
+
+ <CheckBox
+        android:id="@+id/checkBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/editmessage"/>
+        android:text="Do you drink tea?"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"/>
+
+    <Switch
+        android:id="@+id/switchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Do you drink tea?"
+        android:layout_marginBottom="16dp"/>
+
+    <RadioButton
+        android:id="@+id/radioButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Do you drink tea?"
+        android:layout_marginBottom="16dp"/>
 
     <ImageView
         android:id="@+id/myimageview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/your_existing_view_id"
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:layout_below="@id/mybutton"
         android:src="@drawable/logo_algonquin" />
 
-    <!-- ImageButton -->
+   <!-- ImageButton -->
     <ImageButton
         android:id="@+id/myimagebutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_below="@id/myimageview"
         android:src="@drawable/logo_algonquin" />
 </LinearLayout>
