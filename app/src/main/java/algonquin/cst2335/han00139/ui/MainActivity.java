@@ -1,7 +1,6 @@
 package algonquin.cst2335.han00139.ui;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -29,9 +28,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         variableBinding = ActivityMainBinding.inflate(getLayoutInflater());
-
         setContentView(variableBinding.getRoot());
-
         // Initialize views using ViewBinding
         TextView mytext = variableBinding.textview;
         Button mybutton = variableBinding.mybutton;
