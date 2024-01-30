@@ -3,4 +3,5 @@
     <string name="hello_message">Hello world!</string>
     <string name="button_message">I\'m a button</string>
     <string name="editmessage">I\'m a EditText</string>
+    <string name="spin_message">Swtich</string>
 </resources>
