@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Andy‘s Android Labs</string>
+    <string name="app_name">    Andy‘s Android Labs   </string>
     <string name="hello_message">美丽新世界</string>
     <string name="button_message">俺是按钮</string>
+    <string name="editmessage">俺是编辑文本</string>
+    <string name="spin_message">开关按钮</string>
 </resources>

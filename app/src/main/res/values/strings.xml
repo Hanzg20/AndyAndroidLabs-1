@@ -1,5 +1,10 @@
 <resources>
-    <string name="app_name">Andy‘s Android Labs</string>
-    <string name="hello_message">Hello world!</string>
-    <string name="button_message">I\'m a button</string>
+    <string name="app_name">      Andy‘s Android Labs   </string>
+    <string name="hello_message">Type your Password</string>
+    <string name="button_message">LOGIN</string>
+    <string name="editmessage">Enter Password Here</string>
+    <string name="password_meets_requirements" translatable="false">Your password meets the requirements</string>
+    <string name="password_does_not_meet_requirements" translatable="false">You shall not pass!</string>
+    <string name="password_not_complex_enough" translatable="false">Your password is not complex enough</string>
+
 </resources>
