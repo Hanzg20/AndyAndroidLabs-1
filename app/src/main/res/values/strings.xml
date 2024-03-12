@@ -7,4 +7,9 @@
     <string name="password_does_not_meet_requirements" translatable="false">You shall not pass!</string>
     <string name="password_not_complex_enough" translatable="false">Your password is not complex enough</string>
 
+    <string name="message" translatable="false">Message goes here</string>
+    <string name="time" translatable="false">Time goes here</string>
+    <string name="button_send" translatable="false">SEND</string>
+    <string name="button_receive" translatable="false">RECEIVE</string>
+
 </resources>
