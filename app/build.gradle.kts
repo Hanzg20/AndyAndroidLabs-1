@@ -1,7 +1,6 @@
 plugins {
     id("com.android.application")
 }
-
 android {
     namespace = "algonquin.cst2335.han00139"
     compileSdk = 34
@@ -47,5 +46,8 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
+    val room_version = "2.6.1"
+    implementation("androidx.room:room-runtime:$room_version")
+    annotationProcessor ("androidx.room:room-compiler:$room_version")
 
 }

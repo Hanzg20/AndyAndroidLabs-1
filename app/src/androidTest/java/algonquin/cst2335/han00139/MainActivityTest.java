@@ -127,9 +127,6 @@ public class MainActivityTest {
     }
 
 
-
-
-
     private static Matcher<View> childAtPosition(
             final Matcher<View> parentMatcher, final int position) {
 

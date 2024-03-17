@@ -1,13 +1,14 @@
 package algonquin.cst2335.han00139;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -15,6 +16,8 @@ import android.widget.TextView;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 import algonquin.cst2335.han00139.databinding.ActivityChatRoomBinding;
 import algonquin.cst2335.han00139.databinding.ReceiveMessageBinding;
@@ -93,6 +96,23 @@ public class ChatRoom extends AppCompatActivity {
                 return chatMessage.isSentButton()?1:0;
             }
         });
+        MessageDatabase db = Room.databaseBuilder(getApplicationContext(),
+                MessageDatabase.class, "database-name").build();
+        ChatMessageDAO cmDAO = db.cmDAO();
+
+        if(messages == null)
+        {
+            chatModel.messages.setValue(messages = new ArrayList<>());
+
+            Executor thread = Executors.newSingleThreadExecutor();
+            thread.execute(() ->
+            {
+                messages.addAll( cmDAO.getAllMessages() ); //Once you get the data from database
+
+                runOnUiThread( () ->  binding.recycleView.setAdapter( myAdapter )); //You can then load the RecyclerView
+            });
+        }
+
     }
 
     class MyRowHolder extends RecyclerView.ViewHolder {
@@ -100,6 +120,16 @@ public class ChatRoom extends AppCompatActivity {
         TextView timeText;
         public MyRowHolder(@NonNull View itemView) {
             super(itemView);
+            AlertDialog.Builder builder = new AlertDialog.Builder( ChatRoom.this );
+            builder.setTitle("Question");
+            builder.setPositiveButton("No",(dialog,cl) ->{});
+            builder.setNegativeButton("YES",(dialog,cl) ->{
+               // ChatMessage m = messages.get(position);
+            });
+
+            itemView.setOnClickListener(clk ->{
+              //  int position = getAbsoluteAdapterPosition();
+            });
             messageText = itemView.findViewById(R.id.messageText);
             timeText = itemView.findViewById(R.id.timeText);
         }
