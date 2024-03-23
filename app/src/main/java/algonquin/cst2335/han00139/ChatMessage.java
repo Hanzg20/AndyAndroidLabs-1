@@ -3,50 +3,60 @@ package algonquin.cst2335.han00139;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+import java.util.Date;
+import java.util.Locale;
+import java.text.SimpleDateFormat;
+
 
 @Entity
 public class ChatMessage {
-    @ColumnInfo(name="message")
-    private String message;
-    @ColumnInfo(name="timeSent")
-    private String timeSent;
-
-    @ColumnInfo(name="sendOrReceive")
-    protected int sendOrReceive;
-
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name ="id")
-    public  int id;
+    public int id;
 
-    private boolean isSentButton;
+    @ColumnInfo(name ="message")
+    private final String message;
 
-    public ChatMessage(String message, String timeSent, boolean isSentButton) {
+    @ColumnInfo(name ="TimeSent")
+    public final String timeSent;
+
+    @ColumnInfo(name ="IsSentButton")
+    private final boolean isSent;
+
+    public ChatMessage(String message, String timeSent, boolean isSent) {
         this.message = message;
         this.timeSent = timeSent;
-        this.isSentButton = isSentButton;
+        this.isSent = isSent;
     }
 
     public String getMessage() {
         return message;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
     public String getTimeSent() {
         return timeSent;
     }
 
-    public void setTimeSent(String timeSent) {
-        this.timeSent = timeSent;
+    public String getFormattedTime() {
+        return new SimpleDateFormat("EEEE, dd-MMM-yyyy hh-mm-ss a", Locale.getDefault()).format(new Date(Long.parseLong(timeSent)));
     }
 
-    public boolean isSentButton() {
-        return isSentButton;
+    public boolean isSent() {
+        return isSent;
     }
 
-    public void setSentButton(boolean sentButton) {
-        isSentButton = sentButton;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public static ChatMessage createSentMessage(String message, String timeSent) {
+        return new ChatMessage(message, timeSent, true);
+    }
+
+    public static ChatMessage createReceiveMessage(String message, String timeSent) {
+        return new ChatMessage(message, timeSent, false);
+    }
+
+    private static String getCurrentDateAndTime() {
+        return String.valueOf(System.currentTimeMillis());
     }
 }

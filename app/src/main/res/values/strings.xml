@@ -3,13 +3,14 @@
     <string name="hello_message">Type your Password</string>
     <string name="button_message">LOGIN</string>
     <string name="editmessage">Enter Password Here</string>
-    <string name="password_meets_requirements" translatable="false">Your password meets the requirements</string>
-    <string name="password_does_not_meet_requirements" translatable="false">You shall not pass!</string>
-    <string name="password_not_complex_enough" translatable="false">Your password is not complex enough</string>
 
-    <string name="message" translatable="false">Message goes here</string>
-    <string name="time" translatable="false">Time goes here</string>
-    <string name="button_send" translatable="false">SEND</string>
-    <string name="button_receive" translatable="false">RECEIVE</string>
+    <string name="message_placeholder" translatable="false">Message goes here</string>
+    <string name="time_placeholder" translatable="false">Time goes here</string>
+    <string name="send" translatable="false">Send</string>
+    <string name="enter_your_message" translatable="false">"textInput "</string>
+    <string name="receive" translatable="false">RECEIVE</string>
+    <string name="avatar_description" translatable="false">Avatar Image</string>
+
+
 
 </resources>

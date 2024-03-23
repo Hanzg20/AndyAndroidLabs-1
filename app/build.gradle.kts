@@ -7,7 +7,10 @@ android {
 
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
+
+
 
     defaultConfig {
         applicationId = "algonquin.cst2335.han00139"
