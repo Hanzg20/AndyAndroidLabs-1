@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">      Andy‘s Android Labs   </string>
     <string name="hello_message">Type your Password</string>
     <string name="button_message">LOGIN</string>
@@ -10,6 +10,8 @@
     <string name="enter_your_message" translatable="false">"textInput "</string>
     <string name="receive" translatable="false">RECEIVE</string>
     <string name="avatar_description" translatable="false">Avatar Image</string>
+    <string name="delete_item" translatable="false">delete_item</string>
+    <string name="about" translatable="false">about</string>
 
 
 

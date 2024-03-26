@@ -1,7 +1,12 @@
 package algonquin.cst2335.han00139;
 
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -21,6 +26,7 @@ public class ChatRoom extends AppCompatActivity {
     private static final String DATE_FORMAT = "EEEE, dd-MMM-yyyy hh:mm-ss a";
     private ActivityChatRoomBinding binding;
     private MyAdapter myAdapter;
+    private ArrayList<ChatMessage> messages;
     private ChatMessageDAO mDAO;
     private ExecutorService executorService = Executors.newSingleThreadExecutor();
 
@@ -90,5 +96,45 @@ public class ChatRoom extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         executorService.shutdownNow();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.my_menu, menu);
+        return true;
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_delete) {
+            showDeleteAllMessagesDialog();
+            return true;
+        }else if (id == R.id.action_about){
+            showToastAbout();
+            return true;
+        }else {
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+
+    private void showDeleteAllMessagesDialog() {
+        new AlertDialog.Builder(this)
+                .setTitle("Delete All Messages")
+                .setMessage("Are you sure you want to delete all messages?")
+                .setPositiveButton("Delete", (dialog, which) -> {
+                    int size = messages.size();
+                    messages.clear();
+                    myAdapter.notifyItemRangeRemoved(0, size);
+                    Toast.makeText(ChatRoom.this, "All messages deleted", Toast.LENGTH_SHORT).show();
+                })
+                .setNegativeButton("Cancel", null)
+                .show();
+    }
+
+    private void showToastAbout() {
+        Toast.makeText(this, "Version 1.0, created by Zhaoguo Han", Toast.LENGTH_SHORT).show();
     }
 }
